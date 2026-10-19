@@ -25,7 +25,7 @@ The Java backend (JDBC + DAO pattern) talks to MySQL, and the HTML/CSS/JS fronte
 ![Flowchart](Library-Management-System/screenshots/Flowchart.png)
 
 ### Project Structure
-![Project Structure](Library-Management-System/screenshots/Project-Structure.png)
+![Project Structure](Library-Management-System/screenshots/Project-structure.png)
 
 ### Working
 ![Working](Library-Management-System/screenshots/Working.png)
