@@ -34,16 +34,16 @@ Full script: [`database/library.sql`](database/library.sql)
 ## Screenshots
 
 ### Login
-![Login](screenshots/Login.png)
+![Login](Library-Management-System/screenshots/Login.png)
 
 ### Dashboard
-![Dashboard](screenshots/Dashboard.png)
+![Dashboard](Library-Management-System/screenshots/Dashboard.png)
 
 ### Books
-![Books](screenshots/Books.png)
+![Books](Library-Management-System/screenshots/Books.png)
 
 ### Issue Book
-![Issue](screenshots/Issue.png)
+![Issue](Library-Management-System/screenshots/Issue.png)
 
 ## How to Run
 1. Install JDK 21, MySQL Server and the MySQL JDBC Connector (`mysql-connector-j` jar).
