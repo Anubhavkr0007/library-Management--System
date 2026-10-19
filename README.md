@@ -29,7 +29,7 @@ Database: `library_management`
 | books | id, title, author, quantity |
 | issue_records | id, book_id, member_id, issue_date, due_date, return_date |
 
-Full script: [`database/library.sql`](database/library.sql)
+Full script: [`database/library.sql`](Library-Management-System/database/library.sql)
 
 ## Screenshots
 
