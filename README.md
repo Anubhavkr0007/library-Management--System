@@ -19,81 +19,19 @@ The Java backend (JDBC + DAO pattern) talks to MySQL, and the HTML/CSS/JS fronte
 - Frontend: HTML5, CSS3, JavaScript
 - Tools: VS Code, Git + GitHub
 
-  '''mermaid
-  flowchart TB
-    User(["User: Admin / Member"])
+## Project Diagrams
 
-    subgraph FE["Frontend - Browser"]
-        HTML["HTML5 pages<br/>index, dashboard, books,<br/>members, issue, return"]
-        CSS["CSS3<br/>style.css with dark and light mode"]
-        JS["JavaScript<br/>script.js using fetch API"]
-    end
+### Flowchart
+![Flowchart](Library-Management-System/screenshots/Flowchart.png)
 
-    subgraph BE["Backend - Core Java, JDK 21"]
-        Main["Main.java<br/>JDK HttpServer on port 8080"]
-        subgraph DAOL["dao layer"]
-            BookDAO["BookDAO"]
-            MemberDAO["MemberDAO"]
-            IssueDAO["IssueDAO"]
-        end
-        Model["model<br/>Book, Member, Admin, IssueRecord"]
-        Exc["exception<br/>BookNotFoundException"]
-        Conn["database<br/>DBConnection.java"]
-    end
+### Project Structure
+![Project Structure](Library-Management-System/screenshots/Project-Structure.png)
 
-    Driver["JDBC<br/>MySQL Connector/J 8.4.0"]
-    MySQL[("MySQL<br/>library_management")]
+### Working
+![Working](Library-Management-System/screenshots/Working.png)
 
-    User --> HTML
-    HTML --- CSS
-    HTML --> JS
-    JS -->|"HTTP request"| Main
-    Main -->|"JSON response"| JS
-    Main --> BookDAO
-    Main --> MemberDAO
-    Main --> IssueDAO
-    Main -->|"admin login query"| Conn
-    DAOL --> Model
-    BookDAO -.-> Exc
-    IssueDAO -.-> Exc
-    BookDAO --> Conn
-    MemberDAO --> Conn
-    IssueDAO --> Conn
-    Conn --> Driver
-    Driver --> MySQL
-  '''
-
-  '''mermaid
-sequenceDiagram
-    actor Admin
-    participant UI as Frontend (issue.html + script.js)
-    participant Main as Main.java (HttpServer)
-    participant DAO as IssueDAO
-    participant DB as MySQL
-
-    Admin->>UI: Select book and member, click Issue Book
-    UI->>Main: POST /api/issue (bookId, memberId)
-    Main->>DAO: issueBook(bookId, memberId)
-    DAO->>DB: SELECT quantity FROM books WHERE id = bookId
-    DB-->>DAO: quantity (or no row)
-
-    alt Book not found
-        DAO-->>Main: BookNotFoundException
-        Main-->>UI: JSON with ok false and message
-    else Quantity is 0
-        DAO-->>Main: Book is not available
-        Main-->>UI: JSON with ok false and message
-    else Book available
-        DAO->>DB: SELECT id FROM members (member exists?)
-        DAO->>DB: INSERT INTO issue_records (due date = today + 14 days)
-        DAO->>DB: UPDATE books SET quantity = quantity - 1
-        DAO->>DB: COMMIT
-        DAO-->>Main: IssueRecord
-        Main-->>UI: JSON with ok true and due date message
-    end
-
-    UI-->>Admin: Show success or error message
-  '''
+### Layered Architecture
+![Layered Architecture](Library-Management-System/screenshots/Layered-Architecture.png)
 
 ## Database Schema
 Database: `library_management`
