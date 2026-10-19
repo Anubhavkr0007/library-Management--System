@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Books - Library Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="books">
+<nav id="nav"></nav>
+<main>
+  <h1>Books</h1>
+  <div class="panel" id="formPanel">
+    <form class="row" id="bookForm">
+      <input type="hidden" id="bookId">
+      <label>Title<input id="title" required></label>
+      <label>Author<input id="author" required></label>
+      <label>Quantity<input id="quantity" type="number" min="0" required></label>
+      <button class="btn" id="saveBtn" type="submit">Add Book</button>
+    </form>
+  </div>
+  <div class="panel">
+    <div class="row" style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="search" placeholder="Search by title or author">
+      <button class="btn alt" id="searchBtn" type="button">Search</button>
+    </div>
+  </div>
+  <p id="msg" class="msg"></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Title</th><th>Author</th><th>Quantity</th><th>Action</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Issue Book - Library Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="issue">
+<nav id="nav"></nav>
+<main>
+  <h1>Issue Book</h1>
+  <div class="panel">
+    <form class="row" id="issueForm">
+      <label>Book<select id="bookSel" required></select></label>
+      <label>Member<select id="memberSel" required></select></label>
+      <button class="btn" type="submit">Issue Book</button>
+    </form>
+    <p class="hint">Due date is set to 14 days from today.</p>
+    <p id="msg" class="msg"></p>
+  </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>

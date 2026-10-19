@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Return Book - Library Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="ret">
+<nav id="nav"></nav>
+<main>
+  <h1>Return Book</h1>
+  <div class="panel">
+    <form class="row" id="returnForm">
+      <label>Issue ID<input id="issueId" type="number" min="1" required></label>
+      <button class="btn" type="submit">Return Book</button>
+    </form>
+  </div>
+  <p id="msg" class="msg"></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Issue ID</th><th>Book ID</th><th>Member ID</th><th>Issue Date</th><th>Due Date</th><th>Return Date</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>

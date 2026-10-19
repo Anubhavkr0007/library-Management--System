@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Members - Library Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="members">
+<nav id="nav"></nav>
+<main>
+  <h1>Members</h1>
+  <div class="panel">
+    <form class="row" id="memberForm">
+      <input type="hidden" id="memberId">
+      <label>Name<input id="name" required></label>
+      <label>Email<input id="email" type="email" required></label>
+      <label>Phone<input id="phone" required></label>
+      <button class="btn" id="saveBtn" type="submit">Add Member</button>
+    </form>
+  </div>
+  <div class="panel">
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input id="search" placeholder="Search by name or email">
+      <button class="btn alt" id="searchBtn" type="button">Search</button>
+    </div>
+  </div>
+  <p id="msg" class="msg"></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Action</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>

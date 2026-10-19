@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login - Library Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+<main class="login-box">
+  <div class="panel">
+    <div class="theme-row"><button class="btn alt small" id="themeBtn" type="button">Dark mode</button></div>
+    <h1>Library Login</h1>
+    <form id="loginForm">
+      <label>Login as
+        <select id="role"><option value="admin">Admin</option><option value="member">Member</option></select>
+      </label>
+      <label><span id="userLabel">Username</span><input id="username" required></label>
+      <label><span id="passLabel">Password</span><input id="password" type="password" required></label>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <p id="msg" class="msg"></p>
+    <p id="hint" class="hint"></p>
+  </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>
