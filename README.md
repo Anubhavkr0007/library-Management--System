@@ -32,11 +32,18 @@ Database: `library_management`
 Full script: [`database/library.sql`](database/library.sql)
 
 ## Screenshots
-Add your screenshots to the `screenshots/` folder:
-- `Login.png`
-- `Dashboard.png`
-- `Books.png`
-- `Issue.png`
+
+### Login
+![Login](screenshots/Login.png)
+
+### Dashboard
+![Dashboard](screenshots/Dashboard.png)
+
+### Books
+![Books](screenshots/Books.png)
+
+### Issue Book
+![Issue](screenshots/Issue.png)
 
 ## How to Run
 1. Install JDK 21, MySQL Server and the MySQL JDBC Connector (`mysql-connector-j` jar).
