@@ -76,3 +76,14 @@ Set the `DB_PASSWORD` environment variable once, and the script will not ask for
 Download `mysql-connector-j-8.4.0.jar` from Maven Central and place it in `backend/lib/`. Then, from the `backend` folder:
 
 Windows:
+
+mkdir out
+javac -cp “lib/” -d out src\Main.java src\model*.java src\dao*.java src\database*.java src\exception*.java
+set DB_PASSWORD=your_password
+java -cp “out;lib/” Main
+
+Linux / macOS:
+
+mkdir -p out
+javac -cp “lib/” -d out $(find src -name “.java”)
+DB_PASSWORD=your_password java -cp “out:lib/*” Main
