@@ -46,23 +46,33 @@ Full script: [`database/library.sql`](Library-Management-System/database/library
 ![Issue](Library-Management-System/screenshots/Issue.png)
 
 ## How to Run
-1. Install JDK 21, MySQL Server and the MySQL JDBC Connector (`mysql-connector-j` jar).
-2. Run `database/library.sql` in MySQL.
-3. Open `backend/src/database/DBConnection.java` and set your MySQL password.
-4. Put the connector jar in `backend/lib/` and, from the `backend` folder, compile and run:
 
-   Windows:
-   ```
-   mkdir out
-   javac -cp "lib/*" -d out src\Main.java src\model\*.java src\dao\*.java src\database\*.java src\exception\*.java
-   java -cp "out;lib/*" Main
-   ```
-   Linux / macOS:
-   ```
-   mkdir -p out
-   javac -cp "lib/*" -d out $(find src -name "*.java")
-   java -cp "out:lib/*" Main
-   ```
-5. Open `frontend/index.html` in the browser.
-   - Admin login: `admin` / `admin123`
-   - Member login: member's email + phone (add a member from the Members page first)
+### Requirements
+- JDK 21
+- MySQL Server (running)
+- An internet connection for the first run (the MySQL JDBC driver is downloaded automatically)
+
+### Steps
+1. **Create the database.** Run `database/library.sql` in MySQL (safe to run more than once):
+   - MySQL Workbench: open the file and click the lightning button, or
+   - Terminal: `mysql -u root -p < database/library.sql`
+2. **Start the backend.**
+   - Windows: double-click `run.bat`
+   - Linux / macOS: `./run.sh`
+
+   On the first run the script downloads the MySQL JDBC driver into `backend/lib/`. It then asks for your MySQL root password, compiles the code and starts the server at `http://localhost:8080/api/`. Keep this window open while using the app.
+3. **Open the frontend.** Open `frontend/index.html` in your browser.
+
+### Login
+- Admin: username `admin`, password `admin123`
+- Member: the email and phone number saved when the admin added the member. Add a member from the Members page first.
+
+### Optional: skip the password prompt
+Set the `DB_PASSWORD` environment variable once, and the script will not ask for the password again.
+- Windows: `setx DB_PASSWORD your_password` (then reopen the terminal)
+- Linux / macOS: `export DB_PASSWORD=your_password`
+
+### Manual run (without the scripts)
+Download `mysql-connector-j-8.4.0.jar` from Maven Central and place it in `backend/lib/`. Then, from the `backend` folder:
+
+Windows:
