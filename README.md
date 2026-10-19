@@ -82,6 +82,13 @@ javac -cp “lib/” -d out src\Main.java src\model*.java src\dao*.java src\data
 set DB_PASSWORD=your_password
 java -cp “out;lib/” Main
 
+Linux / macOS:
+
+mkdir -p out
+javac -cp “lib/” -d out $(find src -name “.java”)
+DB_PASSWORD=your_password java -cp “out:lib/*” Main
+
+
 ### Limitations
 
 - **No backend authentication:** Login only decides which pages the frontend shows. The Java backend does not verify the user on each request, so the admin-only restriction is enforced in the UI and not in the API.
@@ -97,8 +104,3 @@ java -cp “out;lib/” Main
 - **Local use only:** The backend uses the JDK's built-in HTTP server over plain HTTP (no HTTPS) and allows requests from any origin. It is meant for local academic use and not for production deployment.
 - **No automated tests:** The project was tested manually through the user interface.
 
-Linux / macOS:
-
-mkdir -p out
-javac -cp “lib/” -d out $(find src -name “.java”)
-DB_PASSWORD=your_password java -cp “out:lib/*” Main
