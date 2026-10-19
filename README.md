@@ -82,6 +82,21 @@ javac -cp “lib/” -d out src\Main.java src\model*.java src\dao*.java src\data
 set DB_PASSWORD=your_password
 java -cp “out;lib/” Main
 
+### Limitations
+
+- **No backend authentication:** Login only decides which pages the frontend shows. The Java backend does not verify the user on each request, so the admin-only restriction is enforced in the UI and not in the API.
+- **Plain-text passwords:** Admin passwords are stored as plain text in the `admin` table. Password hashing is not implemented.
+- **Simple member login:** Members log in with their email and phone number, because the `members` table has no password column.
+- **Read-only member access:** Members can only view the dashboard and search books. They cannot issue or return books, and they cannot see their own issue history.
+- **Library-wide dashboard:** Dashboard counts show the whole library's data, not a member's personal data.
+- **No delete operations:** Books and members can be added and updated, but not deleted.
+- **Fixed loan period:** The due date is always 14 days from the issue date. Late returns are detected, but fines are not calculated.
+- **Single admin:** There is no screen to create or manage admin accounts. The default admin is inserted by `library.sql`.
+- **Basic validation:** The backend only checks that required fields are filled. Email and phone formats are not strictly validated.
+- **No pagination:** All books, members and issue records load on a single page, which may become slow with a very large amount of data.
+- **Local use only:** The backend uses the JDK's built-in HTTP server over plain HTTP (no HTTPS) and allows requests from any origin. It is meant for local academic use and not for production deployment.
+- **No automated tests:** The project was tested manually through the user interface.
+
 Linux / macOS:
 
 mkdir -p out
