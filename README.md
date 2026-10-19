@@ -19,7 +19,7 @@ The Java backend (JDBC + DAO pattern) talks to MySQL, and the HTML/CSS/JS fronte
 - Frontend: HTML5, CSS3, JavaScript
 - Tools: VS Code, Git + GitHub
 
-  ''' mermaid
+  '''mermaid
   flowchart TB
     User(["User: Admin / Member"])
 
@@ -63,7 +63,7 @@ The Java backend (JDBC + DAO pattern) talks to MySQL, and the HTML/CSS/JS fronte
     Driver --> MySQL
   '''
 
-  ''' mermaid
+  '''mermaid
 sequenceDiagram
     actor Admin
     participant UI as Frontend (issue.html + script.js)
